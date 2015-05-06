@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.haomee.view.BackGroundView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ScrollView
+        android:id="@+id/sv_mainpage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/ll_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/rl_mainpage_top"
+                android:layout_width="match_parent"
+                android:layout_height="400dp" >
+
+                <com.hb.views.CircleImageView
+                    android:id="@+id/civ_mainpage_target"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="40dp"
+                    android:src="@drawable/ic_launcher"
+                    app:border_color="@color/light"
+                    app:border_width="2dp" />
+
+                <FrameLayout
+                    android:id="@+id/fl_mainpage_contentview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                </FrameLayout>
+
+                <com.haomee.view.DotView
+                    android:id="@+id/dv_mainpage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/civ_mainpage_target" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginBottom="10dp" >
+
+                <ImageView
+                    android:id="@+id/iv_mainpage_direction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="-500dp"
+                    android:layout_marginLeft="-300dp"
+                    android:layout_marginRight="-300dp"
+                    android:src="@drawable/discover_icon_direction_1080" />
+
+                <ImageView
+                    android:id="@+id/iv_mainpage_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/discover_button_add" />
+            </RelativeLayout>
+
+            <com.haomee.view.UnScrollableGridView
+                android:id="@+id/gv_mainpage_recentcontacts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="200dp"
+                android:listSelector="@color/transparent"
+                android:numColumns="4"
+                android:verticalSpacing="20dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/rl_object_user_icon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#33000000"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/object_user_icon"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/fake_icon_head"
+            android:visibility="visible" />
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/chat_title_shape"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/bt_back_portrait"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:src="@drawable/chat_button_back" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" >
+            </View>
+
+            <TextView
+                android:id="@+id/report"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:text="举报"
+                android:textColor="#ffffff"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <FrameLayout
+                    android:id="@+id/fram_chat_video"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp" >
+
+                    <RelativeLayout
+                        android:id="@+id/layout_player"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center" >
+
+                        <ImageView
+                            android:id="@+id/image_loading"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/play_waiting" >
+                        </ImageView>
+                    </RelativeLayout>
+
+                    <master.flame.danmaku.ui.widget.DanmakuSurfaceView
+                        android:id="@+id/sv_danmaku"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="50dp" />
+
+                    <include
+                        android:id="@+id/media_controller"
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        layout="@layout/media_controller" />
+
+                    <RelativeLayout
+                        android:id="@+id/frame_loading"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <ImageView
+                            android:id="@+id/img_loading"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/play_waiting" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_sharr_or_watch"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#33000000"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:visibility="gone" >
+
+                        <TextView
+                            android:id="@+id/watch_new_video"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="10dp"
+                            android:drawableTop="@drawable/chat_button_next"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="看新片"
+                            android:textColor="#ffffff" />
+
+                        <TextView
+                            android:id="@+id/share"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:drawablePadding="10dp"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="分享一下"
+                            android:textColor="#ffffff"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/without_video_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/without_video_bg_img"
+                        android:visibility="gone" >
+                    </ImageView>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" >
+
+                    <ListView
+                        android:id="@+id/list"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:cacheColorHint="#00000000"
+                        android:divider="@null"
+                        android:dividerHeight="5dp"
+                        android:fadingEdge="none"
+                        android:listSelector="#00000000"
+                        android:paddingBottom="5dp"
+                        android:scrollbarStyle="outsideOverlay" />
+
+                    <ProgressBar
+                        android:id="@+id/pb_load_more"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="center"
+                        android:visibility="gone" />
+                </FrameLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.3dp"
+                    android:background="#f1f0f0" >
+                </View>
+
+                <LinearLayout
+                    android:id="@+id/bar_bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom"
+                    android:orientation="horizontal" >
+
+                    <RelativeLayout
+                        android:id="@+id/edittext_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_round_main_color_soliod" >
+
+                        <com.haomee.chat.widget.PasteEditText
+                            android:id="@+id/vertical_send_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dip"
+                            android:background="@null"
+                            android:maxLines="3"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:paddingTop="5dp"
+                            android:textColor="#9c9c9c"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center" >
+
+                        <Button
+                            android:id="@+id/vertical_send"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="6dp"
+                            android:background="@drawable/bg_round_main_color"
+                            android:onClick="onClick"
+                            android:paddingBottom="5dp"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:paddingTop="5dp"
+                            android:text="发送"
+                            android:textColor="#ffffff"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/btn_set_mode_voice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:background="@null"
+                            android:onClick="setModeVoice"
+                            android:padding="5dp"
+                            android:visibility="gone" />
+                    </FrameLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/hide_show_video_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|right"
+                android:background="@null"
+                android:padding="2dp"
+                android:src="@drawable/chat_button_hide" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_report_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/chat_title_shape"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="举报"
+                android:textColor="#ffffff"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/report_iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:paddingBottom="12dp"
+                android:paddingLeft="17dp"
+                android:paddingRight="20dp"
+                android:paddingTop="12dp"
+                android:src="@drawable/arrow_left" />
+
+            <TextView
+                android:id="@+id/textView_commit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:padding="15dp"
+                android:text="提交"
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="24dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dip"
+                        android:text="举报用户"
+                        android:textColor="#ffffff"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:id="@+id/object_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dip"
+                        android:text="hahh"
+                        android:textColor="#f7ff24"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <RadioGroup
+                    android:id="@+id/rg_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <RadioButton
+                        android:id="@+id/rb_btn1"
+                        style="@style/main_radiobutton_style"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dip"
+                        android:checked="true"
+                        android:drawableLeft="@drawable/rb_report_layout"
+                        android:drawablePadding="10dip"
+                        android:text="Ta是广告营销号或是骗子" />
+
+                    <RadioButton
+                        android:id="@+id/rb_btn2"
+                        style="@style/main_radiobutton_style"
+                        android:drawableLeft="@drawable/rb_report_layout"
+                        android:drawablePadding="10dip"
+                        android:text="Ta骚扰我, T的言论让我不适" />
+
+                    <RadioButton
+                        android:id="@+id/rb_btn3"
+                        style="@style/main_radiobutton_style"
+                        android:drawableLeft="@drawable/rb_report_layout"
+                        android:drawablePadding="10dip"
+                        android:text=" Ta向我传播色情/违法信息" />
+
+                    <RadioButton
+                        android:id="@+id/rb_btn4"
+                        style="@style/main_radiobutton_style"
+                        android:drawableLeft="@drawable/rb_report_layout"
+                        android:drawablePadding="10dip"
+                        android:text=" 其他" />
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/repotr_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dip"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="20dip"
+                    android:background="@drawable/video_chat_exit_shape"
+                    android:ems="15"
+                    android:gravity="top"
+                    android:hint="请输入您要提交的其他问题"
+                    android:lines="6"
+                    android:padding="8dip"
+                    android:textColor="#555555"
+                    android:textColorHint="#cccccc"
+                    android:textSize="14sp" >
+                </EditText>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</FrameLayout>
